@@ -32,7 +32,15 @@ namespace CanvasProject
         }
         public static bool MoveButton(int buttonNumber, int x, int y)
         {
-           for
+           bool result;
+            if (buttonIndex == 0)
+            {
+                result = false;
+            }
+
+
+
+            return result;
         }
         public static bool DeleteLastButton()
         {
