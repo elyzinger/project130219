@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +24,9 @@ namespace CanvasProject
         {
             return this.y;
         }
-        internal void  SetX(int newx)
+        internal void SetX(int newx)
         {
-            if(newx > 0 && newx < MyCanvas.MaxWidth && newx < MyCanvas.MaxHEight)
+            if (newx > 0 && newx < MyCanvas.MaxWidth && newx < MyCanvas.MaxHEight)
             {
                 this.x = newx;
             }
@@ -48,8 +48,8 @@ namespace CanvasProject
         }
         public override string ToString()
         {
-            return $"x: {x} y: {y}"
+            return $"point x,y = {this.x},{this.y}";
         }
     }
-    
+
 }
