@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CanvasProject
 {
-    internal class MyButton 
+    internal class MyButton
     {
         protected Point topLeft;
         protected Point BottomRight;
@@ -19,32 +19,32 @@ namespace CanvasProject
         }
         internal int GetWidth()
         {
-            return this.width;
+            return this.width = BottomRight.GetX() - topLeft.GetX();
         }
         internal int GetHeight()
         {
-            return this.height;
+            return this.height = topLeft.GetY() - BottomRight.GetY();
         }
-        internal bool SetTopleft(Point newleft)
+        internal bool SetTopleft(Point topleft)
         {
-            return newleft > 
+            return topleft.GetX() < BottomRight.GetX() && topleft.GetY() > BottomRight.GetY();
         }
-        internal bool SetBottomRight(Point newright)
+        internal bool SetBottomRight(Point buttomright)
         {
-
+            return topLeft.GetX() < BottomRight.GetX() && topLeft.GetY() > BottomRight.GetY();
         }
         internal Point GetTopLeft()
         {
-
+            return topLeft;
         }
         internal Point GetBottomRight()
         {
-
+            return BottomRight;
         }
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"width: {width}, height: {height} top left button: {topLeft} buttom right button: {BottomRight}";
         }
     }
 }
