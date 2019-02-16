@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CanvasProject
+namespace MyCanvas
 {
-    internal class Point
+    class Point
     {
         private int x;
         private int y;
-
-        internal Point(int x, int y)
+        public Point(int x, int y)
         {
-            this.x = x;
+            this.x = y;
             this.y = y;
         }
         internal int GetX()
@@ -24,32 +23,34 @@ namespace CanvasProject
         {
             return this.y;
         }
-        internal void SetX(int newx)
+        internal void SetX(int x)
         {
-            if (newx > 0 && newx < MyCanvas.MaxWidth && newx < MyCanvas.MaxHEight)
+            if (x >= 0 && x <= MyCanvas.maxWidth)
             {
-                this.x = newx;
+                this.x = x;
             }
             else
             {
-                Console.WriteLine($"x {newx} outside borders");
+                Console.WriteLine("illegal value");
             }
+
         }
-        internal void SetY(int newy)
+        internal void SetY(int y)
         {
-            if (newy > 0 && newy < MyCanvas.MaxWidth && newy < MyCanvas.MaxHEight)
+            if (y >= 0 && y <= MyCanvas.maxWidth)
             {
-                this.y = newy;
+                this.y = y;
             }
             else
             {
-                Console.WriteLine($"y {newy} outside borders");
+                Console.WriteLine("illegal value");
             }
+
         }
         public override string ToString()
         {
-            return $"point x,y = {this.x},{this.y}";
+            return $"point: ({this.x},{this.y})";
         }
-    }
 
+    }
 }
