@@ -4,47 +4,70 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CanvasProject
+namespace MyCanvas
 {
-    internal class MyButton
+    class MyButton
     {
         protected Point topLeft;
-        protected Point BottomRight;
+        protected Point bottomRight;
         private int width;
         private int height;
-        internal MyButton(Point topLeft, Point BottomRight)
+        public MyButton(Point topLeft, Point bottomRight)
         {
             this.topLeft = topLeft;
-            this.BottomRight = BottomRight;
+            this.bottomRight = bottomRight;
         }
         internal int GetWidth()
         {
-            return this.width = BottomRight.GetX() - topLeft.GetX();
+            return this.width;
         }
         internal int GetHeight()
         {
-            return this.height = topLeft.GetY() - BottomRight.GetY();
+            return this.height;
         }
-        internal bool SetTopleft(Point topleft)
+        private void UpdateWidthAndHeight()
         {
-            return topleft.GetX() < BottomRight.GetX() && topleft.GetY() > BottomRight.GetY();
+            this.width = bottomRight.GetX() - topLeft.GetX();
+            this.height = bottomRight.GetY() - topLeft.GetY();
         }
-        internal bool SetBottomRight(Point buttomright)
+        internal bool SetTopLeft(Point pointtopleft)
         {
-            return topLeft.GetX() < BottomRight.GetX() && topLeft.GetY() > BottomRight.GetY();
+            if (pointtopleft.GetX() < bottomRight.GetX() && pointtopleft.GetY() < bottomRight.GetY())
+            {
+                this.topLeft = pointtopleft;
+                this.UpdateWidthAndHeight();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        internal bool SetBottomRight(Point pointbottomright)
+        {
+            if (topLeft.GetX() < bottomRight.GetX() && =topLeft.GetY() < bottomRight.GetY())
+            {
+                this.bottomRight = pointbottomright;
+                this.UpdateWidthAndHeight();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         internal Point GetTopLeft()
         {
-            return topLeft;
+            return this.topLeft;
         }
         internal Point GetBottomRight()
         {
-            return BottomRight;
+            return this.bottomRight;
         }
-
         public override string ToString()
         {
-            return $"width: {width}, height: {height} top left button: {topLeft} buttom right button: {BottomRight}";
+            return $"button topleft: {this.topLeft}, bottom right: {this.bottomRight}, width: {this.width}, height: {this.height}";
         }
     }
+        
 }
